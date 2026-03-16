@@ -1,0 +1,32 @@
+---
+const team = [
+  { name: "Tomasz", role: "Master Barber", img: "https://images.unsplash.com/photo-1618077360395-f3068be8e001?q=80&w=800&auto=format&fit=crop" },
+  { name: "Kamil", role: "Senior Barber", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop" },
+  { name: "Michał", role: "Barber", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" }
+];
+---
+
+<section id="zespol" class="py-24 bg-zinc-950">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold font-oswald mb-4 uppercase">Nasz Zespół</h2>
+      <div class="h-1 w-20 bg-amber-500 mx-auto"></div>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {team.map(member => (
+        <div class="text-center group">
+          <div class="overflow-hidden rounded-full w-56 h-56 mx-auto mb-6 border-4 border-zinc-800 group-hover:border-amber-500 transition-colors duration-300">
+            <img 
+              src={member.img} 
+              alt={member.name} 
+              class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
+            />
+          </div>
+          <h3 class="text-2xl font-bold font-oswald uppercase mb-1">{member.name}</h3>
+          <p class="text-amber-500 font-medium tracking-wide">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,77 @@
+---
+---
+
+<div id="booking-popup" class="fixed inset-0 z-[100] hidden items-center justify-center bg-zinc-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+  
+  <div class="bg-zinc-900 border border-zinc-800 p-8 md:p-12 rounded-2xl shadow-2xl max-w-lg w-full mx-4 transform scale-95 transition-transform duration-300 relative text-center">
+    
+    <button id="close-popup-x" class="absolute top-4 right-4 text-zinc-500 hover:text-amber-500 transition-colors p-2">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <div class="w-20 h-20 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-amber-500/20">
+      <svg class="w-10 h-10 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+    </div>
+    
+    <h3 class="text-3xl font-oswald font-bold text-white uppercase mb-4 tracking-wide">
+      System <span class="text-amber-500">Rezerwacji</span>
+    </h3>
+    
+    <p class="text-zinc-300 text-lg leading-relaxed mb-8">
+      Na Twojej docelowej stronie ten przycisk przeniósłby Cię bezpośrednio do <strong class="text-white">Booksy</strong>, <strong class="text-white">Moment.pl</strong> lub Twojego własnego, dedykowanego systemu rezerwacji!
+    </p>
+    
+    <button id="close-popup-btn" class="bg-amber-500 text-zinc-950 px-8 py-4 rounded-full font-bold text-lg hover:bg-amber-400 transition-colors uppercase font-oswald tracking-wider w-full shadow-lg shadow-amber-500/20">
+      Świetnie, rozumiem!
+    </button>
+  </div>
+</div>
+
+<script>
+  const popup = document.getElementById('booking-popup');
+  const popupWindow = popup?.querySelector('div');
+  const closeBtns = document.querySelectorAll('#close-popup-x, #close-popup-btn');
+  
+  const bookingLinks = document.querySelectorAll('a[href="#rezerwacja"]');
+
+  const openPopup = (e: Event) => {
+    e.preventDefault();
+    popup?.classList.remove('hidden');
+    popup?.classList.add('flex');
+    
+    setTimeout(() => {
+      popup?.classList.remove('opacity-0');
+      popupWindow?.classList.remove('scale-95');
+      popupWindow?.classList.add('scale-100');
+    }, 10);
+  };
+
+  const closePopup = () => {
+    popup?.classList.add('opacity-0');
+    popupWindow?.classList.remove('scale-100');
+    popupWindow?.classList.add('scale-95');
+    
+    setTimeout(() => {
+      popup?.classList.add('hidden');
+      popup?.classList.remove('flex');
+    }, 300);
+  };
+
+  bookingLinks.forEach(link => {
+    link.addEventListener('click', openPopup);
+  });
+
+  closeBtns.forEach(btn => {
+    btn.addEventListener('click', closePopup);
+  });
+
+  popup?.addEventListener('click', (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+</script>

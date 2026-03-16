@@ -1,0 +1,79 @@
+---
+---
+
+<header class="fixed w-full z-50 transition-all duration-300 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800/50" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-24"> <div class="flex-shrink-0 flex items-center">
+        <a href="/" class="text-3xl md:text-4xl font-oswald font-extrabold tracking-tighter text-white uppercase">
+          CUT<span class="text-amber-500">&</span>SHAVE
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex space-x-8 lg:space-x-12 items-center">
+        <a href="#o-nas" class="text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-lg transition-colors">O nas</a>
+        <a href="#uslugi" class="text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-lg transition-colors">Usługi</a>
+        <a href="#galeria" class="text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-lg transition-colors">Galeria</a>
+        <a href="#zespol" class="text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-lg transition-colors">Zespół</a>
+      </nav>
+
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="tel:+48123456789" class="hidden lg:block text-zinc-400 hover:text-amber-500 font-medium transition-colors tracking-wider">
+          +48 123 456 789
+        </a>
+        <a href="#rezerwacja" class="bg-amber-500 text-zinc-950 px-8 py-3 rounded-full font-bold text-lg hover:bg-amber-400 transition-colors uppercase font-oswald tracking-wider shadow-lg shadow-amber-500/20">
+          Rezerwuj
+        </a>
+      </div>
+
+      <div class="md:hidden flex items-center">
+        <button id="mobile-menu-btn" class="text-zinc-300 hover:text-amber-500 focus:outline-none transition-colors p-2">
+          <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path id="menu-icon-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-800">
+    <div class="px-4 pt-4 pb-8 space-y-3 shadow-2xl">
+      <a href="#o-nas" class="block px-3 py-3 text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-2xl transition-colors">O nas</a>
+      <a href="#uslugi" class="block px-3 py-3 text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-2xl transition-colors">Usługi</a>
+      <a href="#galeria" class="block px-3 py-3 text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-2xl transition-colors">Galeria</a>
+      <a href="#zespol" class="block px-3 py-3 text-zinc-200 hover:text-amber-500 font-oswald uppercase tracking-widest text-2xl transition-colors">Zespół</a>
+      
+      <div class="pt-6 mt-4 border-t border-zinc-800 flex flex-col space-y-4">
+         <a href="tel:+48123456789" class="block text-center text-zinc-400 font-medium text-lg">
+           Zadzwoń: +48 123 456 789
+         </a>
+         <a href="#rezerwacja" class="block w-full text-center bg-amber-500 text-zinc-950 px-6 py-4 rounded-full font-bold text-xl hover:bg-amber-400 transition-colors uppercase font-oswald tracking-wider">
+          Rezerwuj wizytę
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconPath = document.getElementById('menu-icon-path');
+
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    
+    if (menu?.classList.contains('hidden')) {
+        iconPath?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    } else {
+        iconPath?.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+    }
+  });
+
+  const links = menu?.querySelectorAll('a');
+  links?.forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      iconPath?.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+    });
+  });
+</script>

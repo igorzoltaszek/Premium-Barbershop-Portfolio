@@ -1,0 +1,95 @@
+---
+import '../styles/global.css';
+import Popup from '../components/Popup.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const { 
+	title, 
+	description = "Najlepszy Barbershop w mieście. Zapewniamy najwyższej jakości strzyżenie męskie, trymowanie brody i klasyczne golenie brzytwą w męskiej, luźnej atmosferze.",
+	image = "https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=1200&auto=format&fit=crop" // Wymiary optymalne dla mediów społecznościowych
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://twojbarbershop.pl');
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "Cut & Shave Barbershop",
+  "image": image,
+  "@id": canonicalURL.href,
+  "url": canonicalURL.href,
+  "telephone": "+48123456789",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ul. Przykładowa 12/4",
+    "addressLocality": "Warszawa",
+    "postalCode": "00-000",
+    "addressCountry": "PL"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 52.2296756,
+    "longitude": 21.0122287
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00",
+      "closes": "15:00"
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="pl" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		
+		<link rel="canonical" href={canonicalURL} />
+		
+		<meta name="theme-color" content="#18181b" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={image} />
+		<meta property="og:locale" content="pl_PL" />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={image} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Oswald:wght@400;600;700;800&display=swap" rel="stylesheet">
+		
+		<script type="application/ld+json" set:html={JSON.stringify(schemaData)}></script>
+	</head>
+	<body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-amber-500 selection:text-zinc-950">
+		<slot />
+		<Popup />
+	</body>
+</html>

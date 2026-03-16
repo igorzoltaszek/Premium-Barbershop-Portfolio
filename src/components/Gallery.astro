@@ -1,0 +1,38 @@
+---
+const images = [
+  "https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1735150949874-ec9c9c82b2c4?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+];
+---
+
+<section id="galeria" class="py-24 bg-zinc-950 border-t border-zinc-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 relative">
+      <div class="flex items-center justify-center space-x-3 text-amber-500 mb-4">
+        <span class="h-0.5 w-8 bg-amber-500"></span>
+        <span class="font-oswald tracking-widest uppercase text-sm font-semibold">Portfolio</span>
+        <span class="h-0.5 w-8 bg-amber-500"></span>
+      </div>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold font-oswald mb-4 uppercase text-white">
+        Nasze <span class="text-amber-500">Prace</span>
+      </h2>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {images.map(img => (
+        <div class="overflow-hidden rounded-xl group aspect-[4/5] bg-zinc-900 border border-zinc-800/50 shadow-2xl relative">
+          <div class="absolute inset-0 bg-amber-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
+          
+          <img 
+            src={img} 
+            alt="Nasza praca - fryzura" 
+            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-in-out" 
+            loading="lazy"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

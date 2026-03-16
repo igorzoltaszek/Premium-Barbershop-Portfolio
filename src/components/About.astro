@@ -1,0 +1,59 @@
+---
+---
+
+<section id="o-nas" class="py-24 bg-zinc-900 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      
+      <div class="relative z-10">
+        <div class="flex items-center space-x-3 text-amber-500 mb-4">
+          <span class="h-0.5 w-12 bg-amber-500"></span>
+          <span class="font-oswald tracking-widest uppercase text-sm font-semibold">Poznaj naszą historię</span>
+        </div>
+        
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-oswald font-bold mb-8 uppercase text-white leading-tight">
+          Więcej niż <span class="text-amber-500">fryzjer</span>. <br/> Prawdziwy męski azyl.
+        </h2>
+        
+        <p class="text-lg text-zinc-300 mb-6 font-medium leading-relaxed">
+          Cut & Shave powstało z pasji do klasycznego męskiego rzemiosła. Nie jesteśmy kolejnym zwykłym salonem. Stworzyliśmy miejsce, w którym tradycja dawnych golibrodów łączy się z nowoczesnymi trendami i najwyższymi standardami obsługi.
+        </p>
+        <p class="text-lg text-zinc-300 mb-10 font-medium leading-relaxed">
+          Wpadnij do nas, usiądź wygodnie z filiżanką mocnej kawy (lub czymś chłodniejszym) i oddaj się w ręce profesjonalistów, dla których każdy detal ma znaczenie.
+        </p>
+        
+        <ul class="space-y-4">
+          {[
+            "Doświadczeni i certyfikowani barberzy",
+            "Tylko kosmetyki klasy premium",
+            "Tradycyjne golenie brzytwą i gorący ręcznik",
+            "Luźna, męska atmosfera"
+          ].map((item) => (
+            <li class="flex items-center text-zinc-200 font-medium text-lg">
+              <svg class="w-6 h-6 text-amber-500 mr-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="relative mt-10 lg:mt-0">
+        <div class="absolute -inset-4 border-2 border-amber-500/30 rounded-lg transform translate-x-4 translate-y-4 hidden sm:block"></div>
+        
+        <img 
+          src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?q=80&w=1000&auto=format&fit=crop" 
+          alt="Barber podczas pracy" 
+          class="relative rounded-lg shadow-2xl object-cover aspect-[4/5] w-full z-10"
+        />
+        
+        <div class="absolute -bottom-6 -left-6 sm:-left-10 bg-amber-500 text-zinc-950 p-6 md:p-8 rounded-lg shadow-xl z-20 flex flex-col items-center justify-center border-4 border-zinc-900">
+          <span class="text-4xl md:text-5xl font-oswald font-extrabold mb-1">10+</span>
+          <span class="text-sm md:text-base font-bold uppercase tracking-wider text-center">Lat <br/> Doświadczenia</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -2,7 +2,7 @@
 
 Nowoczesna, w pełni responsywna strona internetowa dla salonu barberskiego, zaprojektowana z myślą o najwyższej wydajności i świetnym UX. Projekt stworzony jako element portfolio.
 
-🔗 **[Zobacz stronę na żywo (Live Demo)](#)** *(tutaj wklej swój link z Netlify)*
+🔗 **[Zobacz stronę na żywo (Live Demo)](#)** *https://premiumbarbershopportfolio.netlify.app/*
 
 ## 🛠 Technologie
 
